@@ -20,8 +20,15 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.CONFLICT).body(exception.getMessage());
     }
 
-    @ExceptionHandler({CustomerNotFoundException.class})
-    public ResponseEntity<String> handleCustomerNotFoundException(CustomerNotFoundException exception){
+    @ExceptionHandler({ CustomerNotFoundException.class })
+    public ResponseEntity<String> handleCustomerNotFoundException(CustomerNotFoundException exception) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
+    }
+
+    // Rentals
+
+    @ExceptionHandler({ GameIdNotFoundException.class })
+    public ResponseEntity<String> handleGameIdNotFoundException(GameIdNotFoundException exception) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
     }
 
