@@ -17,5 +17,5 @@ public class RentalDTO {
 
     @NotNull(message = "daysRented is mandatory!")
     @Positive
-    private int daysRented;
+    private Long daysRented;
 }
