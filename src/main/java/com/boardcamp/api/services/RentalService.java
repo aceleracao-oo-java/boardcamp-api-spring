@@ -3,7 +3,7 @@ package com.boardcamp.api.services;
 import org.springframework.stereotype.Service;
 
 import com.boardcamp.api.dtos.RentalDTO;
-import com.boardcamp.api.exceptions.CustomerIdNotFoundException;
+import com.boardcamp.api.exceptions.CustomerNotFoundException;
 import com.boardcamp.api.exceptions.GameIdNotFoundException;
 import com.boardcamp.api.models.CustomerModel;
 import com.boardcamp.api.models.GameModel;
@@ -32,7 +32,7 @@ public class RentalService {
                 () -> new GameIdNotFoundException("No game found for this Id"));
 
         CustomerModel customer = customerRepository.findById(dto.getCustomerId()).orElseThrow(
-                () -> new CustomerIdNotFoundException("No customer found for this id"));
+                () -> new CustomerNotFoundException("No customer found for this id"));
 
         int price = game.getPricePerDay() * dto.getDaysRented();
 
