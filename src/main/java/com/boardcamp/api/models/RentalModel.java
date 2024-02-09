@@ -12,7 +12,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
@@ -67,12 +67,12 @@ public class RentalModel {
     @Column(nullable = false)
     private int delayFee;
 
-    @OneToOne
-    @JoinColumn(name = "customerId", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "customerId")
     private CustomerModel customer;
 
-    @OneToOne
-    @JoinColumn(name = "gameId", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "gameId")
     private GameModel game;
 
 }
